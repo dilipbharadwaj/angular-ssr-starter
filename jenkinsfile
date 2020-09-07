@@ -8,9 +8,9 @@ node {
                 RUN npm install
         }
         stage('Build'){
-                RUN "npm run build:ssr"
+                RUN npm run build:ssr
         }
         stage('Deploy'){
-                RUN "pm2 restart all"
+                RUN pm2 restart all
         }
 }
