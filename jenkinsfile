@@ -1,5 +1,6 @@
-// This shows a simple example of how to archive the build output artifacts.
-node {
+pipeline {
+    agent any
+    stages {
         stage('Checkout SCM'){
                 git branch: 'SP2', credentialsId: 'Jenkin-Github', url: 'https://github.com/dilipbharadwaj/angular-ssr-starter.git'
         }
@@ -13,4 +14,5 @@ node {
         stage('Deploy'){
                 RUN pm2 restart all
         }
+    }
 }
